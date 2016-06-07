@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ileja.twitter">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,11 +21,9 @@
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="88abdd33d61b026a9763e69bb3cc7dd3e3382f3b"
-            />
-    </application>
+            android:value="88abdd33d61b026a9763e69bb3cc7dd3e3382f3b" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+        <activity android:name=".MessageActivity"></activity>
+    </application>
 
 </manifest>

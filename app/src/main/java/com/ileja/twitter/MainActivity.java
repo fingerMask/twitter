@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 // with your app's user model
                 String msg = "@" + session.getUserName() + " logged in! (#" + session.getUserId() + ")";
                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+
+                toMessageActivity(session);
             }
 
             @Override
@@ -61,5 +63,15 @@ public class MainActivity extends AppCompatActivity {
         // Make sure that the loginButton hears the result from any
         // Activity that it triggered.
         loginButton.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void toMessageActivity(TwitterSession twitterSession){
+        Intent intent = new Intent(this, MessageActivity.class);
+        intent.putExtra("name", twitterSession.getUserName());
+        intent.putExtra("id", twitterSession.getUserId());
+        intent.putExtra("uid", twitterSession.getId());
+        intent.putExtra("session", twitterSession.getAuthToken().token);
+
+        startActivity(intent);
     }
 }
